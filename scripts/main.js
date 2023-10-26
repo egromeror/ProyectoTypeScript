@@ -34,11 +34,14 @@ function mostrarEstadisticas(aprendiz) {
 }
 function mostrarCursosAprendiz(cursos) {
     var cursosTBody = document.createElement("tbody");
+    var estado = cursos.map(function (c) { return (c.calificacion > 60 ? 'green' : 'red'); });
+    var indice = 0;
     for (var _i = 0, cursos_1 = cursos; _i < cursos_1.length; _i++) {
         var curso = cursos_1[_i];
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "<td>" + curso.nombre + "</td>\n        <td>" + curso.horas + "</td>\n        <td>" + curso.calificacion + "</td>\n        <td>" + curso.certificado + "</td>\n        <td>" + curso.anio + "</td>";
+        trElement.innerHTML = "<td>" + curso.nombre + "</td>\n        <td>" + curso.horas + "</td>\n        <td style='color:" + estado[indice] + "'>" + curso.calificacion + "</td>\n        <td>" + curso.certificado + "</td>\n        <td>" + curso.anio + "</td>";
         cursosTBody.appendChild(trElement);
+        indice++;
     }
     cursosTable.appendChild(cursosTBody);
 }
