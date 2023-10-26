@@ -1,3 +1,2 @@
 # ProyectoTypeScript
 Repositorio de prueba Angular
-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
